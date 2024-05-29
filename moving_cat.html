@@ -134,11 +134,11 @@
             <a-entity height="100" width="100" shadow="cast:true; receive:true">
                 <a-box position="-1 0.5 -2" rotation="0 45 0" color="#4CC3D9" dynamic-body grabbable></a-box>
 
-                <a-gltf-model src="#car-obj" scale="0.45 0.45 0.45" position="0 0.01 -10" rotation="0 0 0" car animation-mixer></a-gltf-model>
+                <a-gltf-model src="#car-obj" scale="0.08 0.08 0.08" position="0 0.01 -10" rotation="0 0 0" car animation-mixer></a-gltf-model>
 
                 <a-plane src="#ground" height="100" width="100" rotation="-90 0 0" repeat="100 100" static-body></a-plane>
             </a-entity>
-
+             <a-entity camera look-controls="reverseMouseDrag: true"></a-entity>
             <a-sky src="#bg"></a-sky>
     </a-scene>
 </body>
