@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <title>kucing ngeeeenggg</title>
+    <title>VR: Cursor Gaze</title>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.0/dist/aframe-physics-system.min.js"></script>
     <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
     <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
     <script>
-        AFRAME.registerComponent('kucing', {
+        AFRAME.registerComponent('car', {
             init: function() {
                 window.addEventListener('keydown', this.onKeyDown.bind(this))
                 window.addEventListener('keyup', this.onKeyUp.bind(this))
@@ -88,20 +88,20 @@
             }
         })
 
-        AFRAME.registerComponent('kucing-kiri', {
+        AFRAME.registerComponent('car-controller-left', {
             init: function() {
                 this.el.addEventListener('axismove', function(e) {
-                    const kucing = document.querySelector('[kucing]').components.kucing
-                    kucing.onAxisMoveSpeed(e)
+                    const car = document.querySelector('[car]').components.car
+                    car.onAxisMoveSpeed(e)
                 })
             }
         })
 
-        AFRAME.registerComponent('kucing-kanan', {
+        AFRAME.registerComponent('car-controller-right', {
             init: function() {
                 this.el.addEventListener('axismove', function(e) {
-                    const kucing = document.querySelector('[kucing]').components.kucing
-                    kucing.onAxisMoveAngle(e)
+                    const car = document.querySelector('[car]').components.car
+                    car.onAxisMoveAngle(e)
                 })
             }
         })
@@ -113,7 +113,7 @@
         <a-assets>
             <img id="ground" src="photo/troll.png">
             <img id="bg" src="photo/noway.png">
-            <a-asset-item id="kucing" src="tugas/elgato/scene.gltf"></a-asset-item>
+            <a-asset-item id="car-obj" src="./tugas/elgato/scene.gltf"></a-asset-item>
             <a-mixin id="controller" super-hands="colliderEvent: collisions;
                               colliderEventProperty: els;
                               colliderEndEvent: collisions;
@@ -127,14 +127,14 @@
             <a-camera position="0 4 0" wasd-controls-enabled="false">
                 <a-entity cursor="rayOrigin: mouse" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.015; radiusOuter: 0.018" material="color: #888; shader: flat">
             </a-camera>
-            <a-entity hand-controls="left" mixin="controller" kucing-kiri></a-entity>
-            <a-entity hand-controls="right" mixin="controller" kucing-kanan></a-entity>
+            <a-entity hand-controls="left" mixin="controller" car-controller-left></a-entity>
+            <a-entity hand-controls="right" mixin="controller" car-controller-right></a-entity>
             </a-entity>
 
             <a-entity height="100" width="100" shadow="cast:true; receive:true">
                 <a-box position="-1 0.5 -2" rotation="0 45 0" color="#4CC3D9" dynamic-body grabbable></a-box>
 
-                <a-gltf-model src="#elgato" rotation="-90 0 0" position="0 0 0" scale="0.05 0.05 0.05"></a-gltf-model>
+                <a-gltf-model src="#car-obj" scale="0.02 0.02 0.02" position="0 0.01 -10" rotation="0 0 0" car animation-mixer></a-gltf-model>
 
                 <a-plane src="#ground" height="100" width="100" rotation="-90 0 0" repeat="100 100" static-body></a-plane>
             </a-entity>
