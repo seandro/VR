@@ -111,9 +111,9 @@
 <body>
     <a-scene physics>
         <a-assets>
-            <img id="ground" src="images/block.png">
-            <img id="bg" src="images/bg.jpg">
-            <a-asset-item id="kucing" src="tugas/"></a-asset-item>
+            <img id="ground" src="photo/troll.png">
+            <img id="bg" src="photo/noway.png">
+            <a-asset-item id="kucing" src="tugas/elgato/scene.gltf"></a-asset-item>
             <a-mixin id="controller" super-hands="colliderEvent: collisions;
                               colliderEventProperty: els;
                               colliderEndEvent: collisions;
@@ -127,14 +127,14 @@
             <a-camera position="0 4 0" wasd-controls-enabled="false">
                 <a-entity cursor="rayOrigin: mouse" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.015; radiusOuter: 0.018" material="color: #888; shader: flat">
             </a-camera>
-            <a-entity hand-controls="left" mixin="controller" car-controller-left></a-entity>
-            <a-entity hand-controls="right" mixin="controller" car-controller-right></a-entity>
+            <a-entity hand-controls="left" mixin="controller" kucing-kiri></a-entity>
+            <a-entity hand-controls="right" mixin="controller" kucing-kanan></a-entity>
             </a-entity>
 
             <a-entity height="100" width="100" shadow="cast:true; receive:true">
                 <a-box position="-1 0.5 -2" rotation="0 45 0" color="#4CC3D9" dynamic-body grabbable></a-box>
 
-                <a-obj-model src="#car-obj" mtl="#car-mtl" position="0 0.01 -10" rotation="0 0 0" car animation-mixer></a-obj-model>
+                <a-gltf-model src="#elgato" rotation="-90 0 0" position="0 0 0" scale="0.05 0.05 0.05"></a-gltf-model>
 
                 <a-plane src="#ground" height="100" width="100" rotation="-90 0 0" repeat="100 100" static-body></a-plane>
             </a-entity>
