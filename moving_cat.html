@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-    <title>VR: Cursor Gaze</title>
+    <title>kucing ngeeeenggg</title>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.0/dist/aframe-physics-system.min.js"></script>
     <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
     <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
     <script>
-        AFRAME.registerComponent('car', {
+        AFRAME.registerComponent('kucing', {
             init: function() {
                 window.addEventListener('keydown', this.onKeyDown.bind(this))
                 window.addEventListener('keyup', this.onKeyUp.bind(this))
@@ -88,20 +88,20 @@
             }
         })
 
-        AFRAME.registerComponent('car-controller-left', {
+        AFRAME.registerComponent('kucing-kiri', {
             init: function() {
                 this.el.addEventListener('axismove', function(e) {
-                    const car = document.querySelector('[car]').components.car
-                    car.onAxisMoveSpeed(e)
+                    const kucing = document.querySelector('[kucing]').components.kucing
+                    kucing.onAxisMoveSpeed(e)
                 })
             }
         })
 
-        AFRAME.registerComponent('car-controller-right', {
+        AFRAME.registerComponent('kucing-kanan', {
             init: function() {
                 this.el.addEventListener('axismove', function(e) {
-                    const car = document.querySelector('[car]').components.car
-                    car.onAxisMoveAngle(e)
+                    const kucing = document.querySelector('[kucing]').components.kucing
+                    kucing.onAxisMoveAngle(e)
                 })
             }
         })
@@ -113,8 +113,7 @@
         <a-assets>
             <img id="ground" src="images/block.png">
             <img id="bg" src="images/bg.jpg">
-            <a-asset-item id="car-obj" src="models/car.obj"></a-asset-item>
-            <a-asset-item id="car-mtl" src="models/car.mtl"></a-asset-item>
+            <a-asset-item id="kucing" src="tugas/"></a-asset-item>
             <a-mixin id="controller" super-hands="colliderEvent: collisions;
                               colliderEventProperty: els;
                               colliderEndEvent: collisions;
