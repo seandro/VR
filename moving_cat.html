@@ -111,17 +111,8 @@
 <body>
     <a-scene physics>
         <a-assets>
-            <img id="ground" src="photo/troll.png">
             <img id="bg" src="photo/SAM_103_0592.jpg">
-            <a-asset-item id="car-obj" src="tugas/elgato/scene.gltf"></a-asset-item>
-            <a-mixin id="controller" super-hands="colliderEvent: collisions;
-                              colliderEventProperty: els;
-                              colliderEndEvent: collisions;
-                              colliderEndEventProperty: clearedEls;
-                              grabStartButtons: gripdown, pointdown, triggerdown;
-                              grabEndButtons: gripup, pointup, triggerup" static-body="shape: sphere; sphereRadius: 0.11" oculus-touch-controls="hand: left" physics-collider collision-filter="collidesWith: default, red, green, blue;
-                                     collisionForces: false">
-        </a-assets>
+         
 
         <a-entity>
             <a-camera position="0 6 0" wasd-controls-enabled="true">
